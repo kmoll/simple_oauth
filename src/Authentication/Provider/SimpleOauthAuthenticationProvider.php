@@ -59,7 +59,7 @@ class SimpleOauthAuthenticationProvider implements SimpleOauthAuthenticationProv
    */
   public static function getTokenValue(Request $request) {
     // Check the header. See: http://tools.ietf.org/html/rfc6750#section-2.1
-    $auth_header = $request->headers->get('Authorization', '', TRUE);
+    $auth_header = $request->headers->get('X-Authorization', '', TRUE);
     $prefix = 'Bearer ';
     if (strpos($auth_header, $prefix) === 0) {
       return substr($auth_header, strlen($prefix));
